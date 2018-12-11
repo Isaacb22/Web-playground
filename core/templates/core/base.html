@@ -16,7 +16,7 @@
   <body>
     <body>
       <!-- Navegación -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
           <a class="navbar-brand" href="{% url 'home' %}">Playground</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ned" aria-controls="ned" aria-expanded="false">
@@ -32,11 +32,18 @@
               </li>
             </ul>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/admin/">
-                  {% if request.user.is_staff %}Admin{% else %}Acceder{% endif %}
-                </a>
-              </li>
+              {% if not request.user.is_authenticated %}
+                <li class="nav-item">
+                <a class="nav-link fa fa-sign-in fa-1x" aria-hidden="true" href="{% url 'login' %}"> Acceder</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link fa fa-user-plus fa-1x" aria-hidden="true" href="{% url 'signup' %}"> Registro</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link fa fa-sign-out fa-1x" aria-hidden="true"  href="{% url 'logout' %}"> Salir</a>
+                </li> 
+              {% endif %}
             </ul>
           </div>
         </div>

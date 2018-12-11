@@ -7,16 +7,16 @@
 <main role="main">
   <div class="container mb-4">
     {% for page in page_list|dictsort:"id" reversed %}
-      <div class="row mt-3">
-        <div class="col-md-9 mx-auto">
-          <h2 class="mb-4">{{page.title}}</h2>
+      <div class="card">
+        <h5 class="card-header"><cite><strong>{{page.title}}</strong></cite></h5>
+         <div class="card-body">
           <div>
-            <p>{{page.content|striptags|safe|truncatechars:"200"}}</p>
-            <p><a href="{% url 'pages:page' page.id page.title|slugify %}">Leer más</a>
+            <p class="card-text">{{page.content|striptags|safe|truncatechars:"200"}}</p>
+            <p><a class="btn btn-secondary active" href="{% url 'pages:page' page.id page.title|slugify %}">Leer más</a>
               
               {% if request.user.is_staff %}
-                | <a href="{% url 'pages:update' page.id %}">Editar</a>
-                <!--| <a href="#">Borrar</a>-->
+                <a class="btn btn-info active" href="{% url 'pages:update' page.id %}">Editar</a>
+                <a class="btn btn-danger active" href="{% url 'pages:delete' page.id %}">Borrar</a>
               {% endif %}
             </p>
           </div>
@@ -26,3 +26,5 @@
   </div>
 </main>
 {% endblock %}
+
+
