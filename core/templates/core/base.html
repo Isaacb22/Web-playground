@@ -30,6 +30,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'pages:pages' %}">Páginas</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profiles:list' %}">Perfiles</a>
+              </li>
             </ul>
             <ul class="navbar-nav">
               {% if not request.user.is_authenticated %}
@@ -40,6 +43,9 @@
                 <a class="nav-link fa fa-user-plus fa-1x" aria-hidden="true" href="{% url 'signup' %}"> Registro</a>
                 </li>
               {% else %}
+                <li class="nav-item">
+                <a class="nav-link fa fa-user-circle fa-1x" aria-hidden="true" href="{% url 'profile' %}"> Perfil</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link fa fa-sign-out fa-1x" aria-hidden="true"  href="{% url 'logout' %}"> Salir</a>
                 </li> 
