@@ -5,27 +5,37 @@
 <style>.errorlist{color:red;}</style>
 <main role="main">
   <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-9 mx-auto mb-5">
-        
-        {% if 'register' in request.GET %}
-          <p style="color:green;">Usuario registrado correctamente, ya puedes identificarte.</p>
-        {% endif %}
-        <form action="" method="post">{% csrf_token %}
-          <h3 class="mb-4">Iniciar sesión</h3>
-          {% if form.non_field_errors %}
-            <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
-          {% endif %}
-          <p>
-            <input type="text" name="username" autofocus maxlength="254" required
-              id="id_username" class="form-control" placeholder="Nombre de usuario"/>
-          </p>
-          <p>
-            <input type="password" name="password" required
-              id="id_password" class="form-control" placeholder="Contraseña"/>
-          </p>
-          <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
-        </form>
+    <div class="row mt-5">
+      <div class="col-md-5 mx-auto">
+        <div  class="card" style="width: 26rem; height: 18rem;">
+          <div class="card-body">
+            {% if 'register' in request.GET %}
+              <p style="color:green;">Usuario registrado correctamente, ya puedes identificarte.</p>
+            {% endif %}
+            <form action="" method="post">{% csrf_token %}
+              <h5 class="text-center" style="margin-bottom: 10%">Iniciar sesion</h5>
+              {% if form.non_field_errors %}
+                <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+              {% endif %}
+              <!--Input user-->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id=""><i class="fa fa-user"></i></span>
+                </div>
+                <input type="text" class="form-control" requiredid="id_username" class="form-control" placeholder="Usuario">
+              </div>
+              <!--Input password-->
+              <label for="inputPassword" style="margin-top: 5% class="sr-only"></label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock"></i></span>
+                </div>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              </div>
+              <p><input type="submit" style="margin-top: 10%" class="btn btn-info btn-block" value="Acceder"></p>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
