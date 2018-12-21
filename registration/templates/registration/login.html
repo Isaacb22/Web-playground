@@ -3,31 +3,49 @@
 {% block title %}Iniciar sesión{% endblock %}
 {% block content %}
 <style>.errorlist{color:red;}</style>
+
 <main role="main">
   <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-9 mx-auto mb-5">
-        
-        {% if 'register' in request.GET %}
-          <p style="color:green;">Usuario registrado correctamente, ya puedes identificarte.</p>
-        {% endif %}
-        <form action="" method="post">{% csrf_token %}
-          <h3 class="mb-4">Iniciar sesión</h3>
-          {% if form.non_field_errors %}
-            <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
-          {% endif %}
-          <p>
-            <input type="text" name="username" autofocus maxlength="254" required
-              id="id_username" class="form-control" placeholder="Nombre de usuario"/>
-          </p>
-          <p>
-            <input type="password" name="password" required
-              id="id_password" class="form-control" placeholder="Contraseña"/>
-          </p>
-          <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
-        </form>
+    <div class="row mt-5">
+      <div class="col-md-6 mx-auto">
+        <div class="card" style="width: 26rem;height: 20rem;">
+          <div class="card-body">
+            {% if 'register' in request.GET %}
+              <p style="color:green;">Usuario registrado correctamente, ya puedes identificarte.</p>
+            {% endif %}
+            <form action="" method="post">{% csrf_token %}
+              <h5 class="text-center">Iniciar sesión</h5>
+              {% if form.non_field_errors %}
+                <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+              {% endif %}
+              <!-- Input usuario-->
+              <p> 
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" name="username" autofocus maxlength="254" requiredid="id_username" class="form-control" placeholder="Nombre de usuario"/>
+                </div>
+              </p>
+              <!-- Input password-->
+              <p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="password" name="password" requiredid="id_password" class="form-control" placeholder="Contraseña"/>
+                </div>
+              </p>
+              <!-- Input Acceder-->
+              <p><input type="submit"  style="margin-top: 10%" class="btn btn-info btn-block" value="Acceder"></p>
+            </form>
+            <p>
+              ¿Ha olvidado su clave? Puede restaurarla <a href="{% url 'password_reset' %}">aqui</a>. 
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</main>
+</main> 
 {% endblock %}

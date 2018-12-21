@@ -11,20 +11,21 @@
         <div class="row text-center">
           {% for profile in profile_list %}
               <div class="col-sm-6" style="margin-top: 10%">
-                <div class="card">
+                <div class="card" style="width: 12rem;height: 11rem;">
                   <div>
                     <h5 class="card-title">{{profile.user|truncatechars:"16"}}</h5>
                     {% if profile.avatar %}
-                      <img class="card-img-top" src="{{profile.avatar.url}}" style="width: 10rem;height: 9rem;" alt="Card image cap">
+                      <img class="card-img-top" src="{{profile.avatar.url}}" style="width: 8rem;height: 6rem;" alt="Card image cap">
                     {% else %}
-                      <img class="card-img-top" src="{% static 'registration/img/no-avatar.jpg' %}" style="width: 10rem; height: 9rem;" alt="Card image cap" >
+                      <img class="card-img-top" style="width: 8rem;height: 6rem;" src="{% static 'registration/img/no-avatar.jpg' %}" style="width: 10rem; height: 9rem;" alt="Card image cap">
                     {% endif %}
-                    <a class="btn btn-primary" href="{% url 'profiles:detail' profile.user %}">Ver perfil</a>
+                    <a class="btn btn-info" href="{% url 'profiles:detail' profile.user %}">Ver perfil</a>
                   </div>
                 </div>
               </div>
           {% endfor %}
         </div>
+        
         <!-- Menú de paginación -->
         {% if is_paginated %}
           <nav aria-label="Page navigation" style="margin-top: 10%">
