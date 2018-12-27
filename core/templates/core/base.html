@@ -44,7 +44,10 @@
                 </li>
               {% else %}
                 <li class="nav-item">
-                <a class="nav-link fa fa-user-circle fa-1x" aria-hidden="true" href="{% url 'profile' %}"> Perfil</a>
+                  <a class="nav-link fa fa-envelope fa-1x" aria-hidden="true" href="{% url 'messenger:list' %}"> Mensajes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fa fa-user-circle fa-1x" aria-hidden="true" href="{% url 'profile' %}"> Perfil</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link fa fa-sign-out fa-1x" aria-hidden="true"  href="{% url 'logout' %}"> Salir</a>
