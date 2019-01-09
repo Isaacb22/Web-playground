@@ -13,12 +13,12 @@
 		      		{% if profile.avatar %}
 			    			<img src="{{profile.avatar.url}}" class="img-fluid avatar">
 			  			{% else %}
-								<img src="static 'registration/img/no-avatar.jpg'" class="img-fluid avatar">
+								<img src="static 'registration/img/usuario.jpg'" class="img-fluid avatar">
 			  			{% endif %}
 						</div>
 						<!-- Campos -->
 						<div class="col-md-8">
-			  		<h3>{% profile.user %}</h3>
+			  		<h3>{{ profile.user }}</h3>
 			  		{% if profile.bio %}<p>{{profile.bio}}</p>{% endif %}
 			  		{% if profile.link %}<a href="{{profile.link}}" target="blank">{{profile.link}}</a>{% endif %}
 						</div>

@@ -1,3 +1,5 @@
+
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView

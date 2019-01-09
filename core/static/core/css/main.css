@@ -142,5 +142,41 @@ footer p {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); 
 }
 
-!CSS NUEVO
+!CSS NUEVO PARA EL PROFILE_LIST
+
+.card-profile {
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.2);
+  max-width: 25%;
+  margin-top: 4%;
+  border-radius: 1%;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.card-profile-title {
+  color: grey;
+  font-size: 110%;
+}
+
+.card-profile-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 4%;
+  color: white;
+  border-radius: 4%;
+  background-color: #17a2b8;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 3%;
+  width: 93%;
+  font-size: 100%;
+}
+
+
+.card-profile-button:hover {
+  opacity: 0.8;
+}
+
 
